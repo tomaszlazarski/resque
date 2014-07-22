@@ -209,7 +209,7 @@ module Resque
     def perform(pid)
       job = payload_class
       job_args = args || []
-      job_args << pid
+      job_args.unshift(pid)
       job_was_performed = false
 
       begin
