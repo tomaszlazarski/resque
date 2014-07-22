@@ -207,11 +207,12 @@ module Resque
     # Calls #perform on the class given in the payload with the
     # arguments given in the payload.
     def perform(pid)
-      puts "--------------------------------------------------"
-      puts pid
-      puts job_args.class
       job = payload_class
       job_args = args || []
+      puts "--------------------------------------------------"
+      puts pid
+      puts args.class
+      puts job_args.class
       job_was_performed = false
 
       begin
