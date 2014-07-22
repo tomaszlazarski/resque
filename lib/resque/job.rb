@@ -209,6 +209,7 @@ module Resque
     def perform(pid)
       puts "--------------------------------------------------"
       puts pid
+      puts job_args.class
       job = payload_class
       job_args = args || []
       job_was_performed = false
