@@ -206,7 +206,9 @@ module Resque
     # Attempts to perform the work represented by this job instance.
     # Calls #perform on the class given in the payload with the
     # arguments given in the payload.
-    def perform
+    def perform(pid)
+      log! "--------------------------------------------------"
+      log! pid
       job = payload_class
       job_args = args || []
       job_was_performed = false

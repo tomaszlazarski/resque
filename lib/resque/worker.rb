@@ -250,7 +250,7 @@ module Resque
     def perform(job)
       begin
         run_hook :after_fork, job if will_fork?
-        job.perform
+        job.perform(pid)
       rescue Object => e
         report_failed_job(job,e)
       else
